@@ -1,0 +1,51 @@
+﻿@model DJAmlin.Models.GameResult
+
+@{
+    ViewData["Title"] = "ComputerPlaysComputer";
+
+    //---------------------------------------------------------
+    // This could be done in the controller more cleanly      |
+    // But want to give example of razor inline code          |
+    //---------------------------------------------------------
+
+    string winner;
+    if (Model.WinningPlayer == Winner.Player1)
+    {
+        winner = "Computer User 1";
+    }
+    else if (Model.WinningPlayer == Winner.Player2)
+    {
+        winner = "Computer User 2";
+    }
+    else
+    {
+        winner = "Draw";
+    }
+
+}
+
+<h1>Computer Plays Computer</h1>
+
+<div>
+    <h1>Result of the Game</h1>
+    <hr />
+    <table>
+        <tr>
+            <th>
+                The Winner Is:
+            </th>
+            <th>@winner</th>
+        </tr>
+        <tr>
+            <th>Computer Player 1</th>
+            <th>Computer Player 2</th>
+        </tr>
+        <tr>
+            <td>@Model.Player1Choice</td>
+            <td>@Model.Player2Choice</td>
+        </tr>
+    </table>
+
+    @Html.ActionLink("Play Again", "ComputerPlaysComputer");
+
+</div>

@@ -1,0 +1,40 @@
+﻿@model DJAmlin.Models.GameResult
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Let's Play rock Paper Scissors via MVC'</h1>
+    <hr />
+    @using (Html.BeginForm("MVCResult","Home",FormMethod.Post))
+    {
+        <table>
+            <tr>
+                <th>Make Your Choice:</th>
+                <td>
+                    @Html.DropDownListFor(x => x.Player1Choice, new[] {
+                   new SelectListItem { Text = Definitions.Rock,
+                   Value = Definitions.Rock },
+                   new SelectListItem { Text = Definitions.Paper,
+                   Value = Definitions.Paper},
+                  new SelectListItem { Text = Definitions.Scissors,
+                   Value = Definitions.Scissors}
+                   }, "Choose an option");
+                </td>
+            </tr>
+            <tr>
+                <td coslpan="2" style="height:20px"></td>
+            </tr>
+            <tr>
+                <th>Go</th>
+                <td><input type="submit" value="  Go  " /></td>
+            </tr>
+
+        </table>
+
+
+    }
+
+
+</div>
+
